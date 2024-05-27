@@ -12,37 +12,37 @@
         <img src="./img/Logo.png" class="logo" alt="logo">
         <h1 class="tobo">Toboolist</h1>
     </header>
-    <!--MAIN-->
+    <!--lista-->
     <main>
-        <div class="container" id="radius">
+        <div class="container" id="app">
             <div class="testo">
                 <div id="quadro">
-                    <button class="but blu">Add Task</button>
-                    <button class="but silver">Add Section</button>
+                    <input type="text" v-model="newTodoText" @keyup.enter="addTask">
+                    <button class="but blu" @click="addTask">Add Task</button>
                 </div>
             </div>
         </div>
+
         <div class="container" id="radiusb">
             <div class="testo">
                 <div id="secondoq">
                     <h1><span class="freccia">&#9660;</span> New Task</h1>
-                    <p><span class="check">&#10003;</span> Quarterly Newsletter <span><button class="edi">Editorial</button></span></p>
-                    
-                    <br>
-                    <h1><span class="freccia">&#9660;</span> Today</h1>
-                    <p><span class="check">&#10003;</span> Recruiting blog post <span><button class="edi">Editorial</button></span></p>
-                    <p><span class="check">&#10003;</span> Mobile app luanunch <span><button class="q1">Q1 Goals</button></span></p>
-                    <p><span class="red">&#10754;</span> Interview John H. <span><button class="recru">Recruiting</button></span></p>
-                    <p><span class="check">&#10003;</span> Summit update to mobile storefronts <span><button class="mo">Mobile</button></span></p>
-                    <br>
-                    <h1><span class="freccia">&#9660;</span> Upcoming</h1>
-                    <p><span class="red">&#10754;</span> Schedule meeting with Alex</p>
-                    <p><span class="check">&#10003;</span> Homepage refresh <span><button class="web">Website</button></span></p>
-                    <p><span class="check">&#10003;</span> Onboard new Sales team members <span><button class="sales">Sales</button></span></p>
-                    <p><span class="check">&#10003;</span> Review editorial calendar <span><button class="edi">Editorial</button></span></p>
+                    <p v-for="(todo, index) in todos" :key="`todo-${index}`" @click="toggleDone(index)">
+                        <span :class="{completed: todo.done}">
+                            {{ index }} - {{ todo.text }}
+                        </span>
+                        <button class="edi" @click="removeTask(index)">x</button>
+                        <span></span> 
+                    </p>
                 </div>
             </div>
         </div>
     </main>
+    
+        <!-- javascript (vue) -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- javascript -->
+        <script src="js/main.js"></script>
+    
 </body>
 </html>

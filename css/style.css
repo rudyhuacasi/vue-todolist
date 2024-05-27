@@ -118,3 +118,11 @@ button{
     background-color: rgb(27, 179, 22);
     border-color: white;
 }
+
+.correzzione{
+    text-decoration: line-through;
+}
+
+.completed {
+    text-decoration: line-through;
+  }
