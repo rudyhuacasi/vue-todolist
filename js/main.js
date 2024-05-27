@@ -48,12 +48,21 @@ createApp({
         };
     },
     methods: {
-        
+        // funzione per un elemento alla lista
+        addTask() {
+            if (this.newTodoText.trim() !== '') {
+                this.todos.push({ text: this.newTodoText, done: false });
+                this.newTodoText = '';
+            }
+        },
         // funzione per il buttone "x" per removere elemento della lista
         removeTask(index) {
             this.todos.splice(index, 1);
         },
-        
+        // funzione per il per cambiare il (todos.done) se era uaguale a false, impostare true e viceversa  
+        toggleDone(index) {
+            this.todos[index].done = !this.todos[index].done;
+        }
     }, 
 
 }).mount(`main`)
